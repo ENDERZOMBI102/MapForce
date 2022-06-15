@@ -25,7 +25,7 @@ public abstract class MoreOptionsDialogMixin {
 
 	@Inject( method = "<init>", at = @At( "TAIL" ) )
 	public void onInit( CallbackInfo ci ) {
-		Config.load();
+		Config.load(); // this is here because this mixin it's called earlier than the other
 		var registry = this.generatorOptions.registryAccess().get( Registry.WORLD_PRESET_WORLDGEN );
 		this.generatorType = registry.getHolder( RegistryKey.of( Registry.WORLD_PRESET_WORLDGEN, Config.get().defaultMapType ) );
 	}
