@@ -4,6 +4,7 @@ plugins {
 }
 
 repositories {
+	maven { url 'https://server.bbkr.space/artifactory/libs-release' }
 }
 
 dependencies {
@@ -14,6 +15,7 @@ dependencies {
 	modImplementation "org.quiltmc:quilt-loader:$loader_version"
 
 	modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:$qfapi_version"
+	include modImplementation( "io.github.cottonmc:Jankson-Fabric:$jankson_version" )
 }
 
 processResources {
