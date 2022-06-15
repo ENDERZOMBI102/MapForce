@@ -30,7 +30,12 @@ public abstract class MoreOptionsDialogMixin {
 	public void onInit( CallbackInfo ci ) {
 		Config.load(); // this is here because this mixin it's called earlier than the other
 		var registry = this.generatorOptions.registryAccess().get( Registry.WORLD_PRESET_WORLDGEN );
-		this.generatorType = registry.getHolder( RegistryKey.of( Registry.WORLD_PRESET_WORLDGEN, Config.get().defaultMapType ) );
+		var type = Config.get().defaultMapType;
+		if (! registry.containsId( type ) ) {
+			MapForce.LOGGER.error( "[MapForce] Default map type is set to invalid value! ({})", type );
+		} else {
+			this.generatorType = registry.getHolder( RegistryKey.of( Registry.WORLD_PRESET_WORLDGEN, type ) );
+		}
 
 		if ( Config.get().logWorldTypes )
 			MapForce.LOGGER.info(
