@@ -9,6 +9,7 @@ import net.minecraft.util.Holder;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GeneratorOptions;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,14 +25,15 @@ public abstract class MoreOptionsDialogMixin {
 	private Optional<Holder<GeneratorType>> generatorType;
 
 	@Shadow
-	private C_njsjipmy generatorOptions;
+	private GeneratorOptions generatorOptions;
 
 	@Inject( method = "<init>", at = @At( "TAIL" ) )
 	public void onInit( CallbackInfo ci ) {
 		Config.load(); // this is here because this mixin it's called earlier than the other
-		var registry = this.generatorOptions.registryAccess().get( Registry.WORLD_PRESET_WORLDGEN );
+
+		var registry = GeneratorType.VALUES;
 		var type = Config.get().defaultMapType;
-		if (! registry.containsId( type ) ) {
+		if (! registry.stream().anyMatch( gen -> gen.createDefaultOptions(  ) type ) ) {
 			MapForce.LOGGER.error( "[MapForce] Default map type is set to invalid value! ({})", type );
 		} else {
 			this.generatorType = registry.getHolder( RegistryKey.of( Registry.WORLD_PRESET_WORLDGEN, type ) );
