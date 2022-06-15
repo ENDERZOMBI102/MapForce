@@ -8,4 +8,6 @@ public class ConfigData {
 	public Identifier defaultMapType = new Identifier( "normal" );
 	@Comment("Set to false to disable the \"More World Options..\" button")
 	public boolean moreWorldOptionsButtonEnabled = true;
+	@Comment("Set to true to log all registered world gen types IDs (will be logged when the world creation screen is opened).")
+	public boolean logWorldTypes = false;
 }

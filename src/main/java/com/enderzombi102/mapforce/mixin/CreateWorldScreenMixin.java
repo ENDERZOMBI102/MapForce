@@ -14,10 +14,7 @@ public class CreateWorldScreenMixin {
 	@Shadow
 	private ButtonWidget moreOptionsButton;
 
-	@Inject(
-		method = "init",
-		at = @At( "TAIL" )
-	)
+	@Inject( method = "init", at = @At( "TAIL" ) )
 	public void onInit( CallbackInfo ci ) {
 		this.moreOptionsButton.active = Config.get().moreWorldOptionsButtonEnabled;
 	}

@@ -1,5 +1,6 @@
 package com.enderzombi102.mapforce;
 
+import com.enderzombi102.mapforce.config.Config;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ public class MapForce implements ModInitializer {
 
 	@Override
 	public void onInitialize( ModContainer mod ) {
-		LOGGER.info("Time to fuck up world generation! MapForce {}", mod.metadata().version().raw() );
+		Config.create(); // create config file
+		LOGGER.info("[MapForce] Time to fuck up world generation! MapForce {}", mod.metadata().version().raw() );
 	}
 }

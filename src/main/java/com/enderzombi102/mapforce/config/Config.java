@@ -59,8 +59,12 @@ public class Config {
 			throw new RuntimeException( e );
 		} catch ( IOException e ) {
 			MapForce.LOGGER.warn( "Config file does not exist, will create a new one." );
-			DATA = new ConfigData();
-			save();
+			create();
 		}
+	}
+
+	public static void create() {
+		DATA = new ConfigData();
+		save();
 	}
 }
