@@ -7,6 +7,7 @@ import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@SuppressWarnings("deprecation")
 public class MapForce implements ModInitializer, net.fabricmc.api.ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("MapForce");
 
