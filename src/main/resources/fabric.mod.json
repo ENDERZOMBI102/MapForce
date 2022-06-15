@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "mapforce",
+	"name": "MapForce",
+	"version": "$version",
+	"environment": "client",
+	"license": "MIT",
+	"icon": "assets/mapforce/icon.png",
+	"entrypoints": {
+		"client": [
+			"com.enderzombi102.mapforce.MapForce"
+		]
+	},
+	"contact": {
+		"issues": "https://github.com/ENDERZOMBI102/MapForce/issues",
+		"sources": "https://github.com/ENDERZOMBI102/MapForce"
+	},
+	"depends": {
+		"fabric-resource-loader-v0": "*",
+		"fabricloader": ">=0.12.6",
+		"minecraft": ">=1.18"
+	},
+	"authors": [
+		"ENDERZOMBI102"
+	],
+	"description": "Map generation utilities for modpack makers",
+	"mixins": [
+		"mapforce.mixins.json"
+	]
+}

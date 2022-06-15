@@ -5,15 +5,16 @@ import blue.endless.jankson.JsonGrammar;
 import blue.endless.jankson.JsonPrimitive;
 import blue.endless.jankson.api.SyntaxError;
 import com.enderzombi102.mapforce.MapForce;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.quiltmc.loader.api.QuiltLoader;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+@SuppressWarnings("deprecation")
 public class Config {
 	private static final JsonGrammar JSON5_GRAMMAR = JsonGrammar.builder()
 		.withComments(true)
@@ -32,7 +33,7 @@ public class Config {
 			( identifier, marshaller ) -> new JsonPrimitive( identifier.toString() )
 		)
 		.build();
-	private static final Path CONFIG_LOCATION = QuiltLoader.getConfigDir().resolve( "mapforce.json5" );
+	private static final Path CONFIG_LOCATION = FabricLoader.getInstance().getConfigDir().resolve( "mapforce.json5" );
 	private static @Nullable ConfigData DATA = null;
 
 	public static @NotNull ConfigData get() {

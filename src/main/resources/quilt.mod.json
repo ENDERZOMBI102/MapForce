@@ -6,7 +6,7 @@
 		"version": "${version}",
 		"metadata": {
 			"name": "MapForce",
-			"description": "Map generation utilities for modpack makers\n",
+			"description": "Map generation utilities for modpack makers",
 			"contributors": {
 				"ENDERZOMBI102": "Owner"
 			},
