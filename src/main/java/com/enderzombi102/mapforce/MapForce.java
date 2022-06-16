@@ -13,13 +13,13 @@ public class MapForce implements ModInitializer, net.fabricmc.api.ModInitializer
 
 	@Override
 	public void onInitialize( ModContainer mod ) {
-		Config.create(); // create config file
+		Config.load(); // create config file
 		LOGGER.info("[MapForce] Time to fuck up world generation! MapForce {}", mod.metadata().version().raw() );
 	}
 
 	@Override
 	public void onInitialize() {
-		Config.create(); // create config file
+		Config.load(); // create config file
 		LOGGER.info(
 			"[MapForce] Time to fuck up world generation! MapForce {}",
 			FabricLoader.getInstance()
